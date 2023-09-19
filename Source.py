@@ -2,7 +2,7 @@ import numpy as np
 
 # Nhập số phương trình và số ẩn (n) từ người dùng
 n = int(input("Nhập số phương trình và số ẩn (n): "))
-while (n < 2) :
+while (n <= 1) :
     n = int(input("Đây không phải hệ phương trình, vui lòng nhập lại: "))
 # Khởi tạo ma trận hệ số A và vector kết quả B
 A = np.zeros((n, n))
@@ -42,4 +42,4 @@ try:
             for i in range(n):
                 print(f"x[{i + 1}] = {X[i]}")
 except np.linalg.LinAlgError:
-    print("Hệ phương trình vô nghiệm.")
+    print("Hệ phương trình vô nghiệm...")
