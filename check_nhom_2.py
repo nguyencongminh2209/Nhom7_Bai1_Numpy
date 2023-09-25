@@ -1,20 +1,22 @@
 import numpy as np
 
-matrix = [int(input("Enter value: ")) for _ in range(9)]
-newarr = np.array(matrix).reshape(3, 3)
-x = newarr.T  # Ma trận chuyển vị
+# Nhập kích thước của ma trận vuông từ người dùng
+n = int(input("Enter the size of the square matrix: "))
 
-print("Matrix you entered:")
-print("---------------------------------------")
-print(newarr)
-print("---------------------------------------")
+# Nhập giá trị của ma trận từ người dùng
+matrix_values = []
+for i in range(n):
+    row = [float(input(f"Enter value for row {i + 1}, column {j + 1}: ")) for j in range(n)]
+    matrix_values.extend(row)
 
-print("Transposed matrix:")
-print("---------------------------------------")
-print(x)
-print("---------------------------------------")
-# tối ưu code nhóm 2
-# sự khác biệt xuất hiện khi giá trị tạo mảng lớn dần
-#trong giá trị lớn hơn 10000
-#code nhóm 2 thực hiện trong 0.04700803756713867 seconds
-# code tối ưu chạy trong 0.010142326354980469 seconds
+# Tạo ma trận ban đầu từ danh sách giá trị
+matrix_A = np.array(matrix_values).reshape(n, n)
+
+# Tính ma trận chuyển vị của ma trận A
+matrix_A_transpose = matrix_A.T
+
+# Hiển thị ma trận chuyển vị
+print("Original Matrix (A):")
+print(matrix_A)
+print("Transpose of Matrix (A^T):")
+print(matrix_A_transpose)
