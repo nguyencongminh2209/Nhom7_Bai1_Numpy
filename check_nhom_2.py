@@ -1,32 +1,20 @@
-import numpy as np #import numpy
+import numpy as np
 
-matrix = [] 
+matrix = [int(input("Enter value: ")) for _ in range(9)]
+newarr = np.array(matrix).reshape(3, 3)
+x = newarr.T  # Ma trận chuyển vị
 
-for x in range(9):
-    matrix.append(int(input("Enter value: "))) #created empty list and enter 9 values in it
-
-arr = np.array(matrix, ndmin = 1) #convert list into array
-newarr = arr.reshape(3,3) #create a 3x3 2D array
-x = newarr.copy() #create copy of 3x3 array
-
-for row in range(3):
-    for col in range(3):
-        if row != col:
-            x[row][col] = newarr[col][row] #if row is not = column then swap row and column elements
-
-#DISPLAY ALL RELEVANT INFO
-print("Following is the matrix you entered:")
+print("Matrix you entered:")
 print("---------------------------------------")
 print(newarr)
 print("---------------------------------------")
 
-print("Following is the transposed matrix:")
+print("Transposed matrix:")
 print("---------------------------------------")
 print(x)
 print("---------------------------------------")
-            
-
-            
-
-
-
+# tối ưu code nhóm 2
+# sự khác biệt xuất hiện khi giá trị tạo mảng lớn dần
+#trong giá trị lớn hơn 10000
+#code nhóm 2 thực hiện trong 0.04700803756713867 seconds
+# code tối ưu chạy trong 0.010142326354980469 seconds
