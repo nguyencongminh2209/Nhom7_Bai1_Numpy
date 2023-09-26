@@ -19,7 +19,7 @@ class Menu:
         ad = Button(frame_menu, text="Cộng", font=('arial', 14, 'bold'), activebackground='green', width=50, height=3, command=add.Add)
         tran = Button(frame_menu, text="Chuyển vị", bg='#ADFF2F', font=('arial', 14, 'bold'), activebackground='green', width=50, height=3, command=trans.Trans)
         mlt = Button(frame_menu, text="Nhân", font=('arial', 14, 'bold'), activebackground='green', width=50, height=3, command=multi.Multi)
-        Exit = Button(frame_menu, text="Exit",bg='#ADFF2F', font=('arial', 14, 'bold'), activebackground='green', width=50, height=3, command=exit)
+        Exit = Button(frame_menu, text="Thoát",bg='#ADFF2F', font=('arial', 14, 'bold'), activebackground='green', width=50, height=3, command=exit)
         
         label.pack(fill=BOTH)
         inv.pack()
