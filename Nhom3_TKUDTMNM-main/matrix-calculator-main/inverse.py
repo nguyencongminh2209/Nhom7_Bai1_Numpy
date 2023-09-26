@@ -188,7 +188,7 @@ class Inverse:
         Button(self.frame_inverse_menu, text='Nhập', font=('arial', 10, 'bold'), activebackground='green', padx=10,
                pady=5, command=self.input_matrix).pack(pady=20)
 
-        Button(self.frame_inverse_menu, text="Quay lại Menu", font=('arial', 10, 'bold'), activebackground='green',
+        Button(self.frame_inverse_menu, text="Quay lại", font=('arial', 10, 'bold'), activebackground='green',
                padx=10, pady=5, command=self.back_to_menu_from_dimension).pack()
 
         self.gui_inverse_menu.protocol("WM_DELETE_WINDOW",
