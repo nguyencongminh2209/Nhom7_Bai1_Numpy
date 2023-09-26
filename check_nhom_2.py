@@ -1,22 +1,44 @@
+import tkinter as tk
+from tkinter import messagebox
 import numpy as np
 
-# Nhập kích thước của ma trận vuông từ người dùng
-n = int(input("Enter the size of the square matrix: "))
+def calculate():
+    matrix = []
+    for x in range(9):
+        try:
+            value = int(entry_values[x].get())
+            matrix.append(value)
+        except ValueError:
+            messagebox.showerror("Lỗi", "Vui lòng nhập số nguyên.")
+            return
 
-# Nhập giá trị của ma trận từ người dùng
-matrix_values = []
-for i in range(n):
-    row = [float(input(f"Enter value for row {i + 1}, column {j + 1}: ")) for j in range(n)]
-    matrix_values.extend(row)
+    arr = np.array(matrix, ndmin=1)
+    newarr = np.array(matrix).reshape(3, 3)
+    x = newarr.T  # Ma trận chuyển vị
 
-# Tạo ma trận ban đầu từ danh sách giá trị
-matrix_A = np.array(matrix_values).reshape(n, n)
+    result_text.set(f"Ma trận đã nhập:\n{newarr}\n\nMa trận sau khi chuyển đổi:\n{x}")
 
-# Tính ma trận chuyển vị của ma trận A
-matrix_A_transpose = matrix_A.T
+    # Tính tích hai ma trận
+    matrix_product = np.dot(newarr, x)
+    result_text.set(result_text.get() + f"\n\nTích hai ma trận:\n{matrix_product}")
 
-# Hiển thị ma trận chuyển vị
-print("Original Matrix (A):")
-print(matrix_A)
-print("Transpose of Matrix (A^T):")
-print(matrix_A_transpose)
+root = tk.Tk()
+root.title("Chuyển đổi và tính tích ma trận")
+
+entry_values = []
+
+for i in range(9):
+    label = tk.Label(root, text=f"Nhập số thứ {i+1}:")
+    label.grid(row=i, column=0, padx=5, pady=5)
+    entry_value = tk.Entry(root)
+    entry_value.grid(row=i, column=1, padx=5, pady=5)
+    entry_values.append(entry_value)
+
+calculate_button = tk.Button(root, text="Tính toán", command=calculate)
+calculate_button.grid(row=9, columnspan=2, pady=10)
+
+result_text = tk.StringVar()
+result_label = tk.Label(root, textvariable=result_text, justify="left")
+result_label.grid(row=10, columnspan=2, padx=5, pady=5)
+
+root.mainloop()
