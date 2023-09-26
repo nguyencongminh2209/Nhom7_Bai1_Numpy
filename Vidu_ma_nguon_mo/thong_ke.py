@@ -47,6 +47,15 @@ for i in range (0, 9):
     print ("Lop ", in_data[i, 0], " ", sum1)
 print("Lop ", lopp, "co nhieu sinh vien duoc diem >= D nhieu nhat voi ", maxx, " sinh vien")
 print("Lop ", lopmin, "co it sinh vien duoc diem >= D nhieu nhat voi ", minn, " sinh vien")
+diemL1 = np.sum(in_data[:, 11])
+diemL2 = np.sum(in_data[:, 12])
+if (diemL1 > diemL2):
+    print ("co nhieu sinh vien qua L1 hon L2")
+elif (diemL1 < diemL2):
+    print("co nhieu sinh vien qua L2 hon L1")
+else:
+    print("So sinh vien qua L1 va L2 la nhu nhau")
+
 diemA = in_data[:,3]
 diemBc = in_data[:,4]
 diemB = in_data[:,5]
