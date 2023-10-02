@@ -1,7 +1,6 @@
 import PyQt6.QtWidgets
 import sympy
-from sympy.parsing.sympy_parser import standard_transformations, \
-    implicit_multiplication_application
+from sympy.parsing.sympy_parser import parse_expr, standard_transformations, implicit_multiplication_application
 
 
 class Equation(PyQt6.QtWidgets.QWidget):
@@ -9,7 +8,6 @@ class Equation(PyQt6.QtWidgets.QWidget):
         super().__init__()
         self.equation_left = None
         self.equation_right = None
-        self.text = ""
 
         # create the equation label
         self.equation_text = PyQt6.QtWidgets.QLabel("Nhập phương trình y=...")
@@ -17,8 +15,9 @@ class Equation(PyQt6.QtWidgets.QWidget):
         # create text box for the equation
         self.equation_text_box = PyQt6.QtWidgets.QLineEdit()
 
-        # connect the text box to the equation label
+        # connect the text box to the equation label and set a placeholder text
         self.equation_text_box.textChanged.connect(self.update_equation)
+        self.equation_text_box.setPlaceholderText("Ví dụ: 2*x + 3*y = 5")
 
         # left side
         self.layout_left = PyQt6.QtWidgets.QVBoxLayout()
@@ -48,29 +47,26 @@ class Equation(PyQt6.QtWidgets.QWidget):
 
     def update_equation(self):
         self.text = self.equation_text_box.text()
-        if self.text.count("=") > 1:
-            self.text = "Lỗi cú pháp"
-            self.equation_left = None
-            self.equation_right = None
-            return
         try:
-            lhs, eq, rhs = map(str.strip, self.text.rpartition("="))
-            if not eq:
+            lhs, rhs = map(str.strip, self.text.split("="))
+            if not lhs:
                 lhs = "y"
-            self.equation_left = sympy.parsing.sympy_parser.parse_expr(
-                lhs,
-                transformations=(*standard_transformations, implicit_multiplication_application)
+            
+            self.equation_left = parse_expr(
+                lhs, transformations=(*standard_transformations, implicit_multiplication_application)
             )
-            self.equation_right = sympy.parsing.sympy_parser.parse_expr(
-                rhs,
-                transformations=(
-                    *standard_transformations,
-                    implicit_multiplication_application
-                )
+            self.equation_right = parse_expr(
+                rhs, transformations=(*standard_transformations, implicit_multiplication_application)
             )
-           
+            
             self.equation_text.setText(f"{self.equation_left} = {self.equation_right}")
-        except (Exception,) as error:
+        except Exception as error:
             self.equation_left = None
             self.equation_right = None
-            self.equation_text.setText(f"{error}")
+            self.equation_text.setText(f"Lỗi: {error}")
+
+if __name__ == "__main__":
+    app = PyQt6.QtWidgets.QApplication([])
+    equation_widget = Equation()
+    equation_widget.show()
+    app.exec()
