@@ -2,7 +2,6 @@ import PyQt6.QtWidgets
 import sympy
 from sympy.parsing.sympy_parser import parse_expr, standard_transformations, implicit_multiplication_application
 
-
 class Equation(PyQt6.QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
@@ -15,9 +14,8 @@ class Equation(PyQt6.QtWidgets.QWidget):
         # create text box for the equation
         self.equation_text_box = PyQt6.QtWidgets.QLineEdit()
 
-        # connect the text box to the equation label and set a placeholder text
+        # connect the text box to the equation label
         self.equation_text_box.textChanged.connect(self.update_equation)
-        self.equation_text_box.setPlaceholderText("Ví dụ: 2*x + 3*y = 5")
 
         # left side
         self.layout_left = PyQt6.QtWidgets.QVBoxLayout()
@@ -47,6 +45,12 @@ class Equation(PyQt6.QtWidgets.QWidget):
 
     def update_equation(self):
         self.text = self.equation_text_box.text()
+        if self.text.count("=") != 1:
+            self.equation_left = None
+            self.equation_right = None
+            self.equation_text.setText("Lỗi cú pháp")
+            return
+
         try:
             lhs, rhs = map(str.strip, self.text.split("="))
             if not lhs:
