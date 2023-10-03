@@ -1,6 +1,7 @@
 import sympy as sym
 import tkinter as tk
 from tkinter import ttk
+
 def xoa_du_lieu():
     # Xóa dữ liệu nhập vào các trường văn bản
     bieu_thuc_tich_phan_entry.delete(0, 'end')
@@ -14,6 +15,7 @@ def xoa_du_lieu():
     bien_dao_ham_entry.delete(0, 'end')
     bieu_thuc_khai_trien_entry.delete(0, 'end')
     bieu_thuc_rut_gon_entry.delete(0, 'end')
+
 def tinh_tich_phan():
     bieu_thuc = bieu_thuc_tich_phan_entry.get()
     bien = bien_tich_phan_entry.get()
@@ -38,6 +40,7 @@ def tinh_gioi_han():
         gioi_han_label.config(text="Giới hạn tại điểm {}: {}".format(diem_gioi_han, gioi_han))
     except Exception as e:
         gioi_han_label.config(text="Lỗi: " + str(e))
+
 def tinh_dao_ham():
     bieu_thuc = bieu_thuc_dao_ham_entry.get()
     bien = bien_dao_ham_entry.get()
@@ -56,6 +59,7 @@ def khai_trienn():
         bieu_thuc_khai_trien_label.config(text="Biểu thức khai triển: " + str(bieu_thuc_khai_trien))
     except Exception as e:
         bieu_thuc_khai_trien_label.config(text="Lỗi: " + str(e))
+
 def rut_gon_bieu_thuc():
     bieu_thuc = bieu_thuc_rut_gon_entry.get()
     try:
