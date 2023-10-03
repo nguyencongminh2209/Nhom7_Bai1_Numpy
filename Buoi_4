@@ -1,7 +1,19 @@
 import sympy as sym
 import tkinter as tk
 from tkinter import ttk
-
+def xoa_du_lieu():
+    # Xóa dữ liệu nhập vào các trường văn bản
+    bieu_thuc_tich_phan_entry.delete(0, 'end')
+    bien_tich_phan_entry.delete(0, 'end')
+    gioi_han_start_entry.delete(0, 'end')
+    gioi_han_end_entry.delete(0, 'end')
+    bieu_thuc_gioi_han_entry.delete(0, 'end')
+    bien_gioi_han_entry.delete(0, 'end')
+    diem_gioi_han_entry.delete(0, 'end')
+    bieu_thuc_dao_ham_entry.delete(0, 'end')
+    bien_dao_ham_entry.delete(0, 'end')
+    bieu_thuc_khai_trien_entry.delete(0, 'end')
+    bieu_thuc_rut_gon_entry.delete(0, 'end')
 def tinh_tich_phan():
     bieu_thuc = bieu_thuc_tich_phan_entry.get()
     bien = bien_tich_phan_entry.get()
@@ -159,4 +171,8 @@ tinh_rut_gon_button.grid(row=1, columnspan=2)
 
 bieu_thuc_rut_gon_label = ttk.Label(frame_rut_gon, text="")
 bieu_thuc_rut_gon_label.grid(row=2, columnspan=2)
+
+# Thêm nút xóa dữ liệu
+xoa_du_lieu_button = ttk.Button(root, text="Xóa Dữ Liệu", command=xoa_du_lieu)
+xoa_du_lieu_button.grid(row=2, column=3)
 root.mainloop()
