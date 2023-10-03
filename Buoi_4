@@ -15,6 +15,17 @@ def tinh_tich_phan():
     except Exception as e:
         ket_qua_tich_phan_label.config(text="Lỗi: " + str(e))
 
+def tinh_gioi_han():
+    bieu_thuc = bieu_thuc_gioi_han_entry.get()
+    bien = bien_gioi_han_entry.get()
+    diem_gioi_han = float(diem_gioi_han_entry.get())
+
+    x = sym.symbols(bien)
+    try:
+        gioi_han = sym.limit(bieu_thuc, x, diem_gioi_han)
+        gioi_han_label.config(text="Giới hạn tại điểm {}: {}".format(diem_gioi_han, gioi_han))
+    except Exception as e:
+        gioi_han_label.config(text="Lỗi: " + str(e))
 
 
 # Tạo cửa sổ giao diện
@@ -50,5 +61,30 @@ tinh_tich_phan_button.grid(row=4, columnspan=2)
 
 ket_qua_tich_phan_label = ttk.Label(frame_tich_phan, text="")
 ket_qua_tich_phan_label.grid(row=5, columnspan=2)
+
+# Phần tính giới hạn
+frame_gioi_han = ttk.Frame(root)
+frame_gioi_han.grid(row=0, column=1, padx=10, pady=10, sticky="e")
+
+bieu_thuc_gioi_han_label = ttk.Label(frame_gioi_han, text="Biểu thức giới hạn:")
+bieu_thuc_gioi_han_label.grid(row=0, column=0)
+bieu_thuc_gioi_han_entry = ttk.Entry(frame_gioi_han)
+bieu_thuc_gioi_han_entry.grid(row=0, column=1)
+
+bien_gioi_han_label = ttk.Label(frame_gioi_han, text="Biến:")
+bien_gioi_han_label.grid(row=1, column=0)
+bien_gioi_han_entry = ttk.Entry(frame_gioi_han)
+bien_gioi_han_entry.grid(row=1, column=1)
+
+diem_gioi_han_label = ttk.Label(frame_gioi_han, text="Điểm giới hạn:")
+diem_gioi_han_label.grid(row=2, column=0)
+diem_gioi_han_entry = ttk.Entry(frame_gioi_han)
+diem_gioi_han_entry.grid(row=2, column=1)
+
+tinh_gioi_han_button = ttk.Button(frame_gioi_han, text="Tính Giới Hạn", command=tinh_gioi_han)
+tinh_gioi_han_button.grid(row=3, columnspan=2)
+
+gioi_han_label = ttk.Label(frame_gioi_han, text="")
+gioi_han_label.grid(row=4, columnspan=2)
 
 root.mainloop()
