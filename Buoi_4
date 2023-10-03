@@ -37,6 +37,34 @@ def tinh_dao_ham():
     except Exception as e:
         dao_ham_label.config(text="Lỗi: " + str(e))
 
+# Phần khai triển biểu thức
+frame_khai_trien = ttk.Frame(root)
+frame_khai_trien.grid(row=1, column=0, padx=10, pady=10, sticky="w")
+
+bieu_thuc_khai_trien_label = ttk.Label(frame_khai_trien, text="Biểu thức khai triển:")
+bieu_thuc_khai_trien_label.grid(row=0, column=0)
+bieu_thuc_khai_trien_entry = ttk.Entry(frame_khai_trien)
+bieu_thuc_khai_trien_entry.grid(row=0, column=1)
+
+tinh_khai_trien_button = ttk.Button(frame_khai_trien, text="Khai Triển", command=khai_trienn)
+tinh_khai_trien_button.grid(row=1, columnspan=2)
+
+bieu_thuc_khai_trien_label = ttk.Label(frame_khai_trien, text="")
+bieu_thuc_khai_trien_label.grid(row=2, columnspan=2)
+
+# Phần rút gọn biểu thức
+frame_rut_gon = ttk.Frame(root)
+frame_rut_gon.grid(row=1, column=1, padx=10, pady=10, sticky="e")
+
+bieu_thuc_rut_gon_label = ttk.Label(frame_rut_gon, text="Biểu thức rút gọn:")
+bieu_thuc_rut_gon_label.grid(row=0, column=0)
+bieu_thuc_rut_gon_entry = ttk.Entry(frame_rut_gon)
+bieu_thuc_rut_gon_entry.grid(row=0, column=1)
+
+tinh_rut_gon_button = ttk.Button(frame_rut_gon, text="Rút Gọn", command=rut_gon_bieu_thuc)
+tinh_rut_gon_button.grid(row=1, columnspan=2)
+
+bieu_thuc_rut_gon_label = ttk.Label(frame_rut_gon, text=
 # Tạo cửa sổ giao diện
 root = tk.Tk()
 root.title("Tính Tích Phân, Giới Hạn, Đạo Hàm, Khai Triển và Rút Gọn Biểu Thức")
