@@ -1,28 +1,54 @@
 import sympy as sym
-import numpy as np
-import matplotlib.pyplot as plt
-from sympy.discrete.transforms import fft
-from sympy.discrete.transforms import ifft
-Fs = 100                       # sampling rate
-Ts = 1.0/Fs                      # sampling interval
-t = np.arange(0,1,Ts)            # time vector
-ff = 5                           # frequency of the signal
-#y = np.random.randn(Fs)
-y = np.sin(2 * np.pi * ff * t)
-plt.subplot(3,1,1)
-plt.plot(t,y,'k-')
-plt.xlabel('time')
-plt.ylabel('amplitude')
+import tkinter as tk
+from tkinter import ttk
 
-plt.subplot(3,1,2)
-Y = fft(y)# fft computing and normalization
-y1 = []
-for i in Y:
-    i = complex(i)
-    y1.append(abs(i.real))
-print(y1)
-n1 = len(y1)//2
-plt.plot(range(n1),y1[0:n1], 'r-')
-plt.xlabel('freq (Hz)')
-plt.ylabel('|Y(freq)|')
-plt.show()
+def tinh_tich_phan():
+    bieu_thuc = bieu_thuc_tich_phan_entry.get()
+    bien = bien_tich_phan_entry.get()
+    gioi_han_start = float(gioi_han_start_entry.get())
+    gioi_han_end = float(gioi_han_end_entry.get())
+
+    x = sym.symbols(bien)
+    try:
+        ket_qua_tich_phan = sym.integrate(bieu_thuc, (x, gioi_han_start, gioi_han_end))
+        ket_qua_tich_phan_label.config(text="Kết quả tích phân: " + str(ket_qua_tich_phan))
+    except Exception as e:
+        ket_qua_tich_phan_label.config(text="Lỗi: " + str(e))
+
+
+
+# Tạo cửa sổ giao diện
+root = tk.Tk()
+root.title("Tính Tích Phân, Giới Hạn, Đạo Hàm, Khai Triển và Rút Gọn Biểu Thức")
+
+# Phần tính tích phân
+frame_tich_phan = ttk.Frame(root)
+frame_tich_phan.grid(row=0, column=0, padx=10, pady=10, sticky="w")
+
+bieu_thuc_tich_phan_label = ttk.Label(frame_tich_phan, text="Biểu thức tích phân:")
+bieu_thuc_tich_phan_label.grid(row=0, column=0)
+bieu_thuc_tich_phan_entry = ttk.Entry(frame_tich_phan)
+bieu_thuc_tich_phan_entry.grid(row=0, column=1)
+
+bien_tich_phan_label = ttk.Label(frame_tich_phan, text="Biến:")
+bien_tich_phan_label.grid(row=1, column=0)
+bien_tich_phan_entry = ttk.Entry(frame_tich_phan)
+bien_tich_phan_entry.grid(row=1, column=1)
+
+gioi_han_start_label = ttk.Label(frame_tich_phan, text="Giới hạn bắt đầu:")
+gioi_han_start_label.grid(row=2, column=0)
+gioi_han_start_entry = ttk.Entry(frame_tich_phan)
+gioi_han_start_entry.grid(row=2, column=1)
+
+gioi_han_end_label = ttk.Label(frame_tich_phan, text="Giới hạn kết thúc:")
+gioi_han_end_label.grid(row=3, column=0)
+gioi_han_end_entry = ttk.Entry(frame_tich_phan)
+gioi_han_end_entry.grid(row=3, column=1)
+
+tinh_tich_phan_button = ttk.Button(frame_tich_phan, text="Tính Tích Phân", command=tinh_tich_phan)
+tinh_tich_phan_button.grid(row=4, columnspan=2)
+
+ket_qua_tich_phan_label = ttk.Label(frame_tich_phan, text="")
+ket_qua_tich_phan_label.grid(row=5, columnspan=2)
+
+root.mainloop()
