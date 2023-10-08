@@ -54,6 +54,21 @@ style.configure("TButton", font=("Helvetica", 12))
 open_button = ttk.Button(root, text="Chọn ảnh", command=classify_image)
 open_button.pack(pady=10)
 
+# Create a label to display the prediction
+result_label = Label(root, text="", font=("Helvetica", 16))
+result_label.pack()
+
+# Create a ttk button to clear the selected image and prediction
+clear_button = ttk.Button(root, text="Xóa", command=clear_image)
+clear_button.pack(pady=10)
+
+# Create a ttk button to exit the application
+exit_button = ttk.Button(root, text="Thoát", command=exit_app)
+exit_button.pack(pady=10)
+
+# Start the main application loop
+root.mainloop()
+
 # Create a canvas to display the selected image
 canvas = Canvas(root, width=300, height=300)
 canvas.pack()
