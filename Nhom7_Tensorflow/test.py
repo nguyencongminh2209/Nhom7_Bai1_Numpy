@@ -34,3 +34,26 @@ def classify_image():
         img = ImageTk.PhotoImage(img)
         canvas.create_image(0, 0, anchor=tk.NW, image=img)
         canvas.image = img
+def clear_image():
+    result_label.config(text="")
+    canvas.delete("all")
+
+# Function to exit the application
+def exit_app():
+    root.destroy()
+
+# Create the main application window
+root = tk.Tk()
+root.title("PHÂN LOẠI TRÁI CÂY")
+
+# Use ttk style for buttons
+style = ttk.Style()
+style.configure("TButton", font=("Helvetica", 12))
+
+# Create a ttk button to open an image
+open_button = ttk.Button(root, text="Chọn ảnh", command=classify_image)
+open_button.pack(pady=10)
+
+# Create a canvas to display the selected image
+canvas = Canvas(root, width=300, height=300)
+canvas.pack()
