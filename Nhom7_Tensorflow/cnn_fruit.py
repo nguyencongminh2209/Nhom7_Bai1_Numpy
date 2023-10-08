@@ -1,9 +1,5 @@
-import numpy as np
-from keras_preprocessing import image
-import cv2
-import os
 import tensorflow as tf
-import time
+from keras_preprocessing import image
 from keras_preprocessing.image import ImageDataGenerator
 train_datagen = ImageDataGenerator(rescale = 1./255,
                                    shear_range = 0.2,
@@ -19,7 +15,7 @@ test_set = test_datagen.flow_from_directory('C:/Users/ADM/Desktop/TKPMDTMNM/Nhom
                                             batch_size = 12,
                                             class_mode = 'categorical')
 
-classes = ['Hình tròn','Hình vuông','Hình tam giác','Hình chữ nhật']
+classes = ['Chuối','Dâu tây','Dứa','Khế','Măng cụt','Xoài']
 print("Image Processing.......Compleated")
 cnn = tf.keras.models.Sequential()
 print("Building Neural Network.....")
@@ -37,4 +33,4 @@ cnn.add(tf.keras.layers.Dense(units=6, activation='softmax'))
 cnn.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
 print("Training cnn")
 cnn.fit(x = training_set, validation_data = test_set, epochs = 5)
-cnn.save("model.h5")
+cnn.save("model.keras")
