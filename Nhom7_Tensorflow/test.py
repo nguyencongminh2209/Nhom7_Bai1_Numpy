@@ -7,6 +7,7 @@ from keras.models import load_model
 from PIL import Image,ImageTk
 new_model=load_model('model.keras')
 classes = ['Chuối', 'Dâu tây', 'Dứa', 'Khế', 'Măng cụt', 'Xoài']
+#Hàm phân loại hình ảnh
 def classify_image():
     file_path = filedialog.askopenfilename()
     if file_path:
