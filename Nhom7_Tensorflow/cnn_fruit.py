@@ -4,11 +4,13 @@ train_datagen = ImageDataGenerator(rescale = 1./255,
                                    shear_range = 0.2,
                                    zoom_range = 0.2,
                                    horizontal_flip = True)
+#Đường dẫn này máy tính cá nhân down file hình ảnh ở đâu thì cop đường dẫn thay thế ở đó
 training_set = train_datagen.flow_from_directory('C:/Users/ADM/Desktop/TKPMDTMNM/Nhom7/demo/train1',
                                                  target_size = (64, 64),
                                                  batch_size = 12,
                                                  class_mode = 'categorical')
 test_datagen = ImageDataGenerator(rescale = 1./255)
+#Đường dẫn này máy tính cá nhân down file hình ảnh ở đâu thì cop đường dẫn thay thế ở đó
 test_set = test_datagen.flow_from_directory('C:/Users/ADM/Desktop/TKPMDTMNM/Nhom7/demo/test1',
                                             target_size = (64, 64),
                                             batch_size = 12,
