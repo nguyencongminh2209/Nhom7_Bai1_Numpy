@@ -35,11 +35,12 @@ def classify_image():
         img = ImageTk.PhotoImage(img)
         canvas.create_image(0, 0, anchor=tk.NW, image=img)
         canvas.image = img
+#Hàm xóa
 def clear_image():
     result_label.config(text="")
     canvas.delete("all")
 
-# Function to exit the application
+# Hàm thoát ứng dụng
 def exit_app():
     root.destroy()
 
