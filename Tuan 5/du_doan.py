@@ -73,7 +73,7 @@ for epoch in range(training_epochs):
         # Lấy giá trị cuối cùng của trọng số và độ lệch
 weight = W.numpy()
 bias = b.numpy()
-#thêm chức năng backpropagation
+#thêm chức năng lan truyền ngược
 class NeuralNetwork:
     def __init__(self, x, y):
         self.input      = x
@@ -87,11 +87,11 @@ class NeuralNetwork:
         self.output = sigmoid(np.dot(self.layer1, self.weights2))
 
     def backprop(self):
-        # application of the chain rule to find derivative of the loss function with respect to weights2 and weights1
+        # áp dụng quy tắc dây chuyền để tìm đạo hàm của hàm mất mát theo trọng số2 và trọng số1
         d_weights2 = np.dot(self.layer1.T, (2*(self.y - self.output) * sigmoid_derivative(self.output)))
         d_weights1 = np.dot(self.input.T,  (np.dot(2*(self.y - self.output) * sigmoid_derivative(self.output), self.weights2.T) * sigmoid_derivative(self.layer1)))
 
-        # update the weights with the derivative (slope) of the loss function
+        # cập nhật các trọng số với đạo hàm (độ dốc) của hàm mất
         self.weights1 += d_weights1
         self.weights2 += d_weights2
 # Tính toán dự đoán cho tất cả 5 biến
