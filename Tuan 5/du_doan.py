@@ -94,3 +94,38 @@ class NeuralNetwork:
         # update the weights with the derivative (slope) of the loss function
         self.weights1 += d_weights1
         self.weights2 += d_weights2
+# Tính toán dự đoán cho tất cả 5 biến
+predictions = np.dot(X, weight) + bias
+
+# Vẽ biểu đồ kết quả cho tất cả 5 biến
+fig, axs = plt.subplots(2, 3, figsize=(12, 8))
+axs[0, 0].scatter(x1, y)
+axs[0, 0].plot(x1, predictions, 'r', label='Dự đoán')
+axs[0, 0].set_xlabel('Số giờ học')
+axs[0, 0].set_ylabel('Chỉ số thành tích')
+axs[0, 0].legend()
+axs[0, 1].scatter(x2, y)
+axs[0, 1].plot(x2, predictions, 'r', label='Dự đoán')
+axs[0, 1].set_xlabel('Điểm trước đó')
+axs[0, 1].set_ylabel('Chỉ số thành tích')
+axs[0, 1].legend()
+axs[0, 2].scatter(x3, y)
+axs[0, 2].plot(x3, predictions, 'r', label='Dự đoán')
+axs[0, 2].set_xlabel('Hoạt động ngoại khóa')
+axs[0, 2].set_ylabel('Chỉ số thành tích')
+axs[0, 2].legend()
+axs[1, 0].scatter(x4, y)
+axs[1, 0].plot(x4, predictions, 'r', label='Dự đoán')
+axs[1, 0].set_xlabel('Giờ ngủ')
+axs[1, 0].set_ylabel('Chỉ số thành tích')
+axs[1, 0].legend()
+axs[1, 1].scatter(x5, y)
+axs[1, 1].plot(x5, predictions, 'r', label='Dự đoán')
+axs[1, 1].set_xlabel('Lượng đề luyện tập')
+axs[1, 1].set_ylabel('Chỉ số thành tích')
+axs[1, 1].legend()
+plt.tight_layout()
+plt.show()
+#Ẩn trục thừa
+axs[1, 2].axis('off')
+plt.tight_layout()
