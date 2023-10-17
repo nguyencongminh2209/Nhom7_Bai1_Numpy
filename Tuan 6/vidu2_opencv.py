@@ -39,7 +39,10 @@ def change_scale():
     scale_text = scale_entry.get()
     try:
         scale_value = float(scale_text)
-        current_scale = scale_value
+        if current_choice.get() == 1:
+            current_scale = scale_value
+        elif current_choice.get() == 2:
+            current_scale = 1 / scale_value
         update_image()
     except ValueError:
         pass
@@ -57,14 +60,6 @@ scale_factor = 1.2
 select_button = tk.Button(window, text="Chọn ảnh", command=select_image)
 select_button.pack()
 
-# Tạo nút "Zoom In" và đặt sự kiện khi nút này được nhấn
-zoom_in_button = tk.Button(window, text="Zoom In", command=zoom_in)
-zoom_in_button.pack()
-
-# Tạo nút "Zoom Out" và đặt sự kiện khi nút này được nhấn
-zoom_out_button = tk.Button(window, text="Zoom Out", command=zoom_out)
-zoom_out_button.pack()
-
 # Tạo hộp văn bản để nhập tỷ lệ zoom
 scale_label = tk.Label(window, text="Nhập tỷ lệ zoom:")
 scale_label.pack()
@@ -72,6 +67,22 @@ scale_entry = tk.Entry(window)
 scale_entry.pack()
 scale_confirm_button = tk.Button(window, text="Xác nhận", command=change_scale)
 scale_confirm_button.pack()
+
+# Tạo hộp kiểm để chọn phóng to hoặc thu nhỏ
+current_choice = tk.IntVar()
+current_choice.set(1)  # Ban đầu mặc định là phóng to
+zoom_in_radio = tk.Radiobutton(window, text="Phóng to", variable=current_choice, value=1)
+zoom_out_radio = tk.Radiobutton(window, text="Thu nhỏ", variable=current_choice, value=2)
+zoom_in_radio.pack()
+zoom_out_radio.pack()
+
+# Tạo nút "Zoom In" và đặt sự kiện khi nút này được nhấn
+zoom_in_button = tk.Button(window, text="Zoom In", command=zoom_in)
+zoom_in_button.pack()
+
+# Tạo nút "Zoom Out" và đặt sự kiện khi nút này được nhấn
+zoom_out_button = tk.Button(window, text="Zoom Out", command=zoom_out)
+zoom_out_button.pack()
 
 # Tạo label để hiển thị ảnh
 img_label = tk.Label(window)
