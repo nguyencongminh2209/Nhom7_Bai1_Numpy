@@ -1,1 +1,37 @@
+import cv2
+import tkinter as tk
+from tkinter import filedialog
+from PIL import Image, ImageTk, ImageOps
 
+# Hàm để cập nhật và hiển thị ảnh sau khi zoom và quay ảnh
+def update_image():
+    rotated_img = cv2.rotate(original_img, cv2.ROTATE_90_CLOCKWISE) if rotated else original_img
+    scaled_img = cv2.resize(rotated_img, None, fx=current_scale, fy=current_scale, interpolation=cv2.INTER_LINEAR)
+    img = cv2.cvtColor(scaled_img, cv2.COLOR_BGR2RGB)
+    img = Image.fromarray(img)
+    img = ImageTk.PhotoImage(img)
+    img_label.config(image=img)
+    img_label.image = img
+    display_edges(rotated_img)
+
+# Hàm để hiển thị biên của ảnh
+def display_edges(img):
+    edges = cv2.Canny(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), 100, 200)
+    edges_image = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
+    edges_image = Image.fromarray(edges_image)
+    edges_image = ImageOps.mirror(edges_image)  # Đảo chiều ngang để dễ so sánh
+    edges_image = ImageTk.PhotoImage(edges_image)
+    edges_label.config(image=edges_image)
+    edges_label.image = edges_image
+
+
+
+
+
+
+
+# Tạo label để hiển thị biên của ảnh
+edges_label = tk.Label(window)
+edges_label.pack()
+
+window.mainloop()
