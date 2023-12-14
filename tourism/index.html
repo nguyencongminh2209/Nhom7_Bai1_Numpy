@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+   <header>
+    <div class="header-top">
+        <i class="fas fa-bars"></i>
+        <ul>
+            <li><a href="">Trang chủ</a></li>
+            <li><a href="">Đặc điểm</a></li>
+            <li><a href="">Bộ sưu tập</a></li>
+            <li><a href="">Đánh giá</a></li>
+            <li><a href="">Liên hệ</a></li>
+        </ul>
+    </div>
+    <div class="video-container">
+        <video src="Video/video.mp4" autoplay muted loop></video>
+    </div>
+    #
+    <div class="header-container">
+    	<h1>Khám phá</h1>
+    	<p>Địa điểm đẹp</p>
+    	<form action="" onsubmit="return searchTour()">
+        	<h1>Bạn muốn đi đâu?</h1>
+        	<p>Địa điểm</p>
+       		<select name="citySelect" id="citySelect">
+            	<option value="#">--Xin mời chọn địa điểm--</option>
+            	<option value="hanoi">Hà Nội</option>
+            	<option value="danang">Đà Nẵng</option>
+            	<option value="hochiminh">Hồ Chí Minh</option>
+        	</select>
+        	<p>Số người</p>
+        	<input type="number" min="1" placeholder="Bạn đi bao nhiêu người" id="numberOfPeople">
+        	<p>Ngày đi</p>
+        	<input type="date" id="departureDate">
+        	<p>Ngày về</p>
+        	<input type="date" id="returnDate">
+        	<button type="submit">Tìm Kiếm</button>
+    	</form>
+    <div id="cityInfo"></div>
+</div>
+
+    #
+   </header>
+<!-- -----------NICE PLACE---------- -->
+<section class="nice-place">
+    <div class="container">
+        <h1 class="h1-style ">Địa Điểm Nổi Bật</h1>
+        <div class="nice-place-content row">
+            <div class="nice-place-item">
+                <div class="nice-place-img">
+                    <img src="image/Hanoi.jpg" alt="">
+                </div>
+                <div class="nice-place-text">
+                    <h2>HÀ NỘI</h2>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <p>Hà Nội là thủ đô, thành phố trực thuộc trung ương và là một đô thị loại đặc biệt của nước Cộng hòa Xã hội chủ nghĩa Việt Nam. </p>
+                    <button class="btn">Click vào để mua tour</button>
+                </div>
+            </div>
+            <div class="nice-place-item">
+                <div class="nice-place-img">
+                    <img src="image/Danang.jpg" alt="">
+                </div>
+                <div class="nice-place-text">
+                    <h2>ĐÀ NẴNG</h2>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <p>Đà Nẵng là một thành phố trực thuộc trung ương, nằm trong vùng Duyên hải Nam Trung Bộ. Đây là một thành phố vừa có núi cao, sông sâu, đồi dốc.</p>
+                    <button class="btn">Click vào để mua tour</button>
+                </div>
+            </div>
+            <div class="nice-place-item">
+                <div class="nice-place-img">
+                    <img src="image/Hochimin.jpg" alt="">
+                </div>
+                <div class="nice-place-text">
+                    <h2>HỒ CHÍ MINH</h2>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <p>Thành phố Hồ Chí Minh, còn gọi bằng tên cũ phổ biến là Sài Gòn, là thành phố lớn nhất Việt Nam và là một siêu đô thị trong tương lai gần. </p>
+                    <button class="btn">Click vào để mua tour</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ----------About------------>
+<section class="about">
+    <div class="container">
+        <h1 class="h1-style ">About</h1>
+        <div class="about-content row">
+            <div class="about-content-left">
+                <img src="image/think.jpg" alt="">
+            </div>
+            <div class="about-content-right">
+                <h2>Tại sao bạn nên chọn chúng tôi?</h2>
+                <p>Chúng tôi là công ty hàng đầu về cung cấp dịch vụ về lữ hành nội địa và quốc tế.</p>
+                <p>Về chất lượng dịch vụ: Chúng tôi cung cấp các dịch vụ chất lượng cao và đảm bảo an toàn cho khách hàng của mình.</p>
+                <p>Đội ngũ nhân viên chuyên nghiệp: Có đội ngũ nhân viên chuyên nghiệp và am hiểu về du lịch, sẽ giúp bạn có được những lời khuyên và hướng dẫn tốt nhất để có một chuyến đi thành công.</p>
+                <p>Sự đảm bảo và bảo hiểm:  Chúng tôi cung cấp các dịch vụ bảo hiểm cho khách hàng của mình để đảm bảo an toàn và đáp ứng được các yêu cầu của pháp luật.</p>
+                <p>Giá cả hợp lý: Cung cấp các giá cả hợp lý và minh bạch, không có chi phí ẩn.</p>
+                <button class="btn">Tìm Hiểu Thêm</button>
+            </div>
+        </div>
+        <div class="service row">
+            <div class="service-item ">
+                <img src="image/datphong.png" alt="">
+                <p>Đặt phòng</p>
+            </div>
+            <div class="service-item ">
+                <img src="image/dichvu247.png" alt="">
+                <p>Dịch vụ 24/7</p>
+            </div>
+            <div class="service-item ">
+                <img src="image/guidebook.png" alt="">
+                <p>Guide book</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- -----------------Tour 2023--------------- -->
+<section class="tour">
+    <div class="container">
+        <h1 class="h1-style">Tour hè 2023</h1>
+        <div class="tour-content row">
+            <div class="tour-content-item row">
+                <div class="tour-content-item-img">
+                    <img src="image/Dalat.jpg" alt="">
+                </div>
+                <div class="tour-content-item-text">
+                    <h2>Đà Lạt</h2>
+                    <p>Đà Lạt là thành phố trực thuộc tỉnh Lâm Đồng, nằm trên cao nguyên Lâm Viên, thuộc vùng Tây Nguyên, Việt Nam. </p>
+                    <button class="btn">Khám phá</button>
+                </div>
+            </div>
+            <div class="tour-content-item row">
+                <div class="tour-content-item-img">
+                    <img src="image/Hoian.jpg" alt="">
+                </div>
+                <div class="tour-content-item-text">
+                    <h2>Hội An</h2>
+                    <p>Hội An là một thành phố trực thuộc tỉnh Quảng Nam, Việt Nam. Phố cổ Hội An từng là một thương cảng quốc tế sầm uất. </p>
+                    <button class="btn">Khám phá</button>
+                </div>
+            </div>
+            <div class="tour-content-item row">
+                <div class="tour-content-item-img">
+                    <img src="image/Danang2.jpg" alt="">
+                </div>
+                <div class="tour-content-item-text">
+                    <h2>Đà Nẵng</h2>
+                    <p>Đà Nẵng là một thành phố trực thuộc trung ương, nằm trong vùng Duyên hải Nam Trung Bộ. Là thành phố lớn nhất khu vực miền Trung - Tây Nguyên. </p>
+                    <button class="btn">Khám phá</button>
+                </div>
+            </div>
+            <div class="tour-content-item row">
+                <div class="tour-content-item-img">
+                    <img src="image/Saigon.jpg" alt="">
+                </div>
+                <div class="tour-content-item-text">
+                    <h2>Hồ Chí Minh</h2>
+                    <p>Thành phố Hồ Chí Minh, còn gọi bằng tên cũ phổ biến là Sài Gòn, là thành phố lớn nhất Việt Nam và là một siêu đô thị trong tương lai gần. </p>
+                    <button class="btn">Khám phá</button>
+                </div>
+            </div>
+            <div class="tour-content-item row">
+                <div class="tour-content-item-img">
+                    <img src="image/Mocchau.jpg" alt="">
+                </div>
+                <div class="tour-content-item-text">
+                    <h2>Mộc Châu</h2>
+                    <p>Mộc Châu là cao nguyên rộng lớn, có khí hậu ôn đới gió mùa. Các điểm du lịch nổi tiếng phải kể Hang Dơi, rừng thông Mộc Châu, thác Thái Hưng và không thể thiếu các đồi chè, đồng cỏ ở thị trấn NT Mộc Châu. </p>
+                    <button class="btn">Khám phá</button>
+                </div>
+            </div>
+            <div class="tour-content-item row">
+                <div class="tour-content-item-img">
+                    <img src="image/Hagiang.jpg" alt="">
+                </div>
+                <div class="tour-content-item-text">
+                    <h2>Hà Giang</h2>
+                    <p>Hà Giang là tỉnh có nhiều tiềm năng du lịch cả về thiên nhiên và văn hóa. Hà Giang là nơi có nhiều sản phẩm văn hóa đặc sắc từ truyền thống lâu đời của hơn 20 dân tộc, một địa danh du lịch đáng nhớ bởi cảnh quan thiên nhiên và con người ở đây. </p>
+                    <button class="btn">Khám phá</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ---------------Review------------- -->
+<section class="review">
+    <div class="container">
+        <h1 class="h1-style">Phản hồi</h1>
+        <div class="review-content row">
+            <div class="review-item">
+                <div class="review-item-text">
+                    <img src="image/phanhoi.png" alt="">
+                    <p><span>&ldquo;</span>Tôi khá ấn tượng với các địa điểm du lịch ở thành phố Đà Nẵng. Ở đây có rất nhiều món ngon, con người  cũng rất tuyệt vời.<span>&rdquo;</span></p>
+                </div>
+                <div class="review-item-img row">
+                    <img src="image/Tung.jpg" alt="">
+                    <div class="review-item-img-text">
+                        <h2>Vũ Đình Tuấn</h2>
+                        <p>Ngày 10/12/2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-item-text">
+                    <img src="image/phanhoi.png" alt="">
+                    <p><span>&ldquo;</span>I love Hanoi, I love VietNam. This is a nice country with many food and breathtaking view. I hope i have a change to come back here again.                                     <span>&rdquo;</span></p>
+                </div>
+                <div class="review-item-img row">
+                    <img src="image/Luong.jpg" alt="">
+                    <div class="review-item-img-text">
+                        <h2>Vũ Thu Phương</h2>
+                        <p>Ngày 30/11/2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-item-text">
+                    <img src="image/phanhoi.png" alt="">
+                    <p><span>&ldquo;</span>Sài Gòn là thành phố tuyệt vời. Tôi có rất nhiều trải nghiệm thú vị với gia đình và người thân ở đây. Một nơi mang đến rất nhiều địa điểm du lịch đẹp.<span>&rdquo;</span></p>
+                </div>
+                <div class="review-item-img row">
+                    <img src="image/Lanh.png" alt="">
+                    <div class="review-item-img-text">
+                        <h2>Nguyễn Công Minh</h2>
+                        <p>Ngày 11/12/2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-item-text">
+                    <img src="image/phanhoi.png" alt="">
+                    <p><span>&ldquo;</span>Sài Gòn là thành phố tuyệt vời. Tôi có rất nhiều trải nghiệm thú vị với gia đình và người thân ở đây. Một nơi mang đến rất nhiều địa điểm du lịch đẹp.<span>&rdquo;</span></p>
+                </div>
+                <div class="review-item-img row">
+                    <img src="image/Lanh.png" alt="">
+                    <div class="review-item-img-text">
+                        <h2>Nguyễn Duy Wang</h2>
+                        <p>Ngày 11/12/2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="signup">
+    <h1 class="h1-style">Đăng kí</h1>
+    <div class="signup-content">
+        <input type="text" placeholder="Nhập email của bạn">
+        <button class="btn">Gửi</button>
+    </div>
+</section>
+<!-- --------------Contact------------ -->
+<section class="contact">
+    <div class="container">
+        <h1 class="h1-style">Liên hệ</h1>
+        <div class="contact-content-top row">
+          <div class="contact-content-item">
+            <input type="text" placeholder="Tên">
+          </div>
+          <div class="contact-content-item">
+            <input type="text" placeholder="Địa chỉ">
+          </div>
+          <div class="contact-content-item">
+            <input type="text" placeholder="Email">
+          </div>
+          <div class="contact-content-item">
+            <input type="text" placeholder="Số điện thoại">
+          </div>
+        </div>
+        <div class="contact-content-bottom">
+            <textarea placeholder="Nội dung"></textarea>
+            <button class="btn">Gửi</button>
+        </div>
+    </div>
+</section>
+<!-- Thêm modal -->
+<div id="tourModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="tourTitle"></h2>
+        <p id="tourDescription"></p>
+    </div>
+</div>
+
+<!-- Các tour hiển thị trên màn hình nhỏ -->
+<div class="tour-list">
+    <div class="tour-item" onclick="openTourDetails('Hà Nội Tour', 'Thông tin về tour ở Hà Nội.')">
+        <h3>Hà Nội Tour</h3>
+        <p>Mô tả ngắn về Hà Nội Tour...</p>
+    </div>
+    <!-- Các tour khác ở đây -->
+</div>
+
+<!-- Form tìm kiếm -->
+<form action="" onsubmit="return searchTour()">
+    <!-- Các trường tìm kiếm tour ở đây -->
+    <h1>Bạn muốn đi đâu?</h1>
+    <p>Địa điểm</p>
+    <select name="citySelect" id="citySelect">
+        <option value="#">--Xin mời chọn địa điểm--</option>
+        <option value="hanoi">Hà Nội</option>
+        <option value="danang">Đà Nẵng</option>
+        <option value="hochiminh">Hồ Chí Minh</option>
+    </select>
+    <!-- Các trường khác ở đây -->
+    <button type="submit">Tìm Kiếm</button>
+</form>
+
+<!-- Danh sách tour sẽ được hiển thị ở đây -->
+<div id="tourList" class="tour-list">
+    <!-- Danh sách tour sẽ được hiển thị ở đây -->
+</div>
+
+<!-- Các phần khác của trang web của bạn có thể xuất hiện ở đây -->
+
+<script src="script.js"></script>
+</body>
+</html>
